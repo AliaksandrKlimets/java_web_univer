@@ -2,10 +2,17 @@ package com.example.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "student")
 public class Student {
 
-    @JsonIgnore
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private Long univerId;
     private String name;
     private String nickname;
     private Long stipuha;
@@ -50,5 +57,13 @@ public class Student {
 
     public void setStipuha(Long stipuha) {
         this.stipuha = stipuha;
+    }
+
+    public Long getUniverId() {
+        return univerId;
+    }
+
+    public void setUniverId(Long univerId) {
+        this.univerId = univerId;
     }
 }

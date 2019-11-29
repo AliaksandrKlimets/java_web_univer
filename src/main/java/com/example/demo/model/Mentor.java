@@ -1,12 +1,20 @@
 package com.example.demo.model;
 
+import javax.persistence.*;
+
+@Table(name = "mentor")
+@Entity
 public class Mentor {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String nickname;
     private Long age;
     private boolean isPencioner;
+
+    private Long courseId;
 
     public boolean isPencioner() {
         return isPencioner;
@@ -47,5 +55,13 @@ public class Mentor {
     public void setAge(Long age) {
         this.age = age;
         this.isPencioner = age > 63;
+    }
+
+    public Long getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(Long courseId) {
+        this.courseId = courseId;
     }
 }
